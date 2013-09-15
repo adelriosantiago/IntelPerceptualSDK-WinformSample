@@ -1,6 +1,7 @@
 The MIT License (MIT)
 
-Copyright (c) 2013 Alejandro del Río (a.delrio.santiago@gmail.com) [Your name here!? Please contribute to the project and I will be very happy to add you here.]
+Copyright (c) 2013 Alejandro del Río (a.delrio.santiago@gmail.com) [Your name here!?
+Please contribute to the project and I will be very happy to add you here.]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -21,6 +22,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ---
 
-Annotation 1: Yes you can use this project for your Intel Challenge submission and/or personal project!
+Annotation 1: Yes you can use this project for your Intel Challenge submission
+and/or personal project!
 
-Annotation 2: Note that the license allows you do what you want with this project, however some parts of the Intel Perceptual Computing SDK are under a different license so some things (like reverse engineering the library) and other "weird" things are probably not allowed. In other words just because this project is MIT Licensed it does not mean that the library used is also MIT Licensed.
+Annotation 2: Note that the license allows you do what you want with this project,
+however some parts of the Intel Perceptual Computing SDK are under a different
+license so some things (like reverse engineering the library) and other "weird"
+things are probably not allowed. In other words just because this project is
+MIT Licensed it does not mean that the library used is also MIT Licensed.
