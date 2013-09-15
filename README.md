@@ -10,5 +10,7 @@ Basically this is a program that uses Intel Perceptual SDK to perform face locat
 ---Three easy steps to get the sample running on Visual Studio C# .NET---
 
 1.-Clone the repository on your desktop (click the "Clone in Desktop" button and follow the steps).
+
 2.-Open the .sln file.
+
 3.-Click run, if it fails then the reference to the library "libpxcclr" is incorrect. To fix it simply right-click on References folder on your Solution Explorer, click Add Reference, then Browse, then select the library located at the folder Resources.
