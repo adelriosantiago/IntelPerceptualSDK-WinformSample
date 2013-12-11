@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 
 /*
@@ -17,6 +15,7 @@ namespace facereco_test
     public partial class Form1 : Form
     {
         MyPipeline pipeline;
+        //Thread thread;
         bool isRunning = false;
 
         public Form1()
@@ -28,21 +27,63 @@ namespace facereco_test
         {
             if (isRunning)
             {
-                isRunning = false;
                 pipeline.PauseFaceLocation(true);
                 pipeline.Close();
+
+                //try
+                //{
+                //    thread.Abort();
+                //}
+                //catch (ThreadAbortException) { };
+
+                isRunning = false;
             }
             else
             {
                 isRunning = true;
+
+                // delete this line
+                pipeline = new MyPipeline(this, pictureBox1);
+
+                //pipeline = new MyPipeline(this);
+                //// use public event into pipeline class and public delegate
+                //pipeline.OnFaceDetection += pipeline_OnFaceDetection;
+                //thread = new Thread(new ThreadStart(StartPipeline));
+                //thread.Start();
+
                 pipeline.LoopFrames();
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // delete this line
             pipeline = new MyPipeline(this, pictureBox1);
         }
+
+        //void pipeline_OnFaceDetection(Bitmap lastImage)
+        //{
+        //    try
+        //    {
+        //        //pictureBox1.Image = lastImage;
+        //        using (MemoryStream memory = new MemoryStream())
+        //        {
+        //            lastImage.Save(memory, ImageFormat.Png);
+        //            memory.Position = 0;
+        //            Bitmap image = new Bitmap(memory);
+        //            pictureBox1.Image = image;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //    }
+        //}
+
+        //private void StartPipeline()
+        //{
+        //    if (pipeline != null)
+        //        pipeline.LoopFrames();
+        //}
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -57,6 +98,13 @@ namespace facereco_test
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // dispose pipeline if exist
+            if (pipeline != null)
+                pipeline.Dispose();
         }
     }
 
@@ -83,7 +131,7 @@ namespace facereco_test
         uint[] gender = new uint[2];
         uint[] blink = new uint[2];
         uint[] smile = new uint[1];
-        
+
         //PXCM variables
         PXCMFaceAnalysis faceAnalysis;
         PXCMSession session;
@@ -95,28 +143,39 @@ namespace facereco_test
         PXCMFaceAnalysis.Landmark.ProfileInfo landmarkProfile;
         PXCMFaceAnalysis.Attribute.ProfileInfo attributeProfile;
 
+
+        // delete this lines
         //Face data
-        PictureBox recipient; //Where the image will be drawn
+        //PictureBox recipient; //Where the image will be drawn
 
-        public MyPipeline(Form1 parent, PictureBox recipient)
+
+        //--add this
+        //public delegate void FaceDetection(Bitmap lastImage);
+        //public event FaceDetection OnFaceDetection;
+        //--add this
+
+
+
+        //public MyPipeline(Form1 parent) // use this constructor do same for delete parent using
+        public MyPipeline(Form1 parent, PictureBox recipient) //remove 
         {
-            lastProcessedBitmap = new Bitmap(640, 480);            
+            lastProcessedBitmap = new Bitmap(640, 480);
 
-            this.recipient = recipient;
+            //this.recipient = recipient;
             this.parent = parent;
-                        
+
             attributeProfile = new PXCMFaceAnalysis.Attribute.ProfileInfo();
 
             EnableImage(PXCMImage.ColorFormat.COLOR_FORMAT_RGB24);
             EnableFaceLocation();
-            EnableFaceLandmark();            
+            EnableFaceLandmark();
         }
 
         public override bool OnNewFrame()
         {
             faceAnalysis = QueryFace();
             faceAnalysis.QueryFace(fidx, out faceId, out timeStamp);
-            
+
             //Get face location
             faceLocation = (PXCMFaceAnalysis.Detection)faceAnalysis.DynamicCast(PXCMFaceAnalysis.Detection.CUID);
             locationStatus = faceLocation.QueryData(faceId, out faceLocationData);
@@ -150,7 +209,8 @@ namespace facereco_test
             attributeStatus = faceAttributes.QueryData(PXCMFaceAnalysis.Attribute.Label.LABEL_AGE_GROUP, faceId, out age_group);
 
             ShowAttributesOnForm();
-            
+
+            //-- delete
             //Do the application events
             try
             {
@@ -160,6 +220,9 @@ namespace facereco_test
             {
                 //TODO: Handle exception!
             }
+            //-- delete
+
+
             return true;
         }
 
@@ -183,8 +246,15 @@ namespace facereco_test
                 }
             }
 
+            //-- delete
             //Show main image
-            recipient.Image = lastProcessedBitmap;
+            //recipient.Image = lastProcessedBitmap;
+            //-- delete
+
+            //--add this
+            //if (OnFaceDetection != null)
+            //    OnFaceDetection(lastProcessedBitmap);
+            //--add this
         }
 
         private void ShowAttributesOnForm()
