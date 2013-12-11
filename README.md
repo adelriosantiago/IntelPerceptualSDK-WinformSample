@@ -18,6 +18,6 @@ Basically this is a program that uses Intel Perceptual SDK to perform face locat
 3.-Click run, if it fails then the reference to the library "libpxcclr" is incorrect. To fix it simply right-click on References folder on your Solution Explorer, click Add Reference, then Browse, then select the library located at the folder Resources.
 
 
----Contac information---
+---Contact information---
 
 You can contact me at: a.delrio.santiago@gmail.com, my Intel Perceptual user name is "del Rio" (http://software.intel.com/en-us/user/815018), I'm more or less active on the Intel Perceptual Forum (http://software.intel.com/en-us/forums/intel-perceptual-computing-sdk)
