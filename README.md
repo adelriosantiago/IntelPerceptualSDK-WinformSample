@@ -8,6 +8,8 @@ A Visual Studio C# .NET windows form sample for the Intel Perceptual Computing S
 
 Basically this is a program that uses Intel Perceptual SDK to perform face location/detection (including confidence), landmark detection (location of eyes, mouth, nose) and face attributes detection(age, emotion, eye status, gender) in a windows form. It looks like this (http://imageshack.us/a/img12/3250/v97j.png). Feel free to use it on your projects. Remember you can contribute!
 
+Note that this branch no longer shows the form image. This issue has been added to the issue list
+
 
 ---Three easy steps to get the sample running on Visual Studio C# .NET---
 
@@ -18,6 +20,6 @@ Basically this is a program that uses Intel Perceptual SDK to perform face locat
 3.-Click run, if it fails then the reference to the library "libpxcclr" is incorrect. To fix it simply right-click on References folder on your Solution Explorer, click Add Reference, then Browse, then select the library located at the folder Resources.
 
 
----Contac information---
+---Contact information---
 
 You can contact me at: a.delrio.santiago@gmail.com, my Intel Perceptual user name is "del Rio" (http://software.intel.com/en-us/user/815018), I'm more or less active on the Intel Perceptual Forum (http://software.intel.com/en-us/forums/intel-perceptual-computing-sdk)
