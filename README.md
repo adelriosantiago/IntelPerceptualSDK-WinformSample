@@ -1,7 +1,7 @@
 IntelPerceptualSDK-WinformSample
 ================================
 
-> Please note that Intel has released a [newer SDK](https://software.intel.com/en-us/intel-realsense-sdk), it looks very promising although i haven't been able to test it.
+> Please note that this project usees the old Intel Perceptual SDK, while it still works, there is a new a [newer SDK](https://software.intel.com/en-us/intel-realsense-sdk) that looks very promising!
 
 A Visual Studio C# .NET windows form sample for the Intel Perceptual Computing SDK 2013. 
 
