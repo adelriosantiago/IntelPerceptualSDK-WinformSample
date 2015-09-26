@@ -1,10 +1,12 @@
 IntelPerceptualSDK-WinformSample
 ================================
 
+> Please note that Intel has released a [newer SDK](https://software.intel.com/en-us/intel-realsense-sdk), it looks very promising although i haven't been able to test it.
+
 A Visual Studio C# .NET windows form sample for the Intel Perceptual Computing SDK 2013. 
 
 
----The project in a nutshell---
+### The project in a nutshell
 
 Basically this is a program that uses Intel Perceptual SDK to perform face location/detection (including confidence), landmark detection (location of eyes, mouth, nose) and face attributes detection(age, emotion, eye status, gender) in a windows form. 
 
@@ -13,7 +15,7 @@ Basically this is a program that uses Intel Perceptual SDK to perform face locat
 Feel free to use it on your projects. Remember you can contribute!
 
 
----Three easy steps to get the sample running on Visual Studio C# .NET---
+### Three easy steps to get the sample running on Visual Studio C# .NET
 
 1.-Install the Intel Perceptual SDK from http://software.intel.com/en-us/vcsource/tools/perceptual-computing-sdk.
 
@@ -22,6 +24,6 @@ Feel free to use it on your projects. Remember you can contribute!
 3.-Click run, if it fails then the reference to the library "libpxcclr" is incorrect. To fix it simply right-click on References folder on your Solution Explorer, click Add Reference, then Browse, then select the library located at the folder Resources.
 
 
----Contact information---
+### Contact information
 
-You can contact me at: a.delrio.santiago@gmail.com, my Intel Perceptual user name is "del Rio" (http://software.intel.com/en-us/user/815018), I'm more or less active on the Intel Perceptual Forum (http://software.intel.com/en-us/forums/intel-perceptual-computing-sdk)
+You can find my old threads about Intel Perceptual [here](http://software.intel.com/en-us/user/815018).
