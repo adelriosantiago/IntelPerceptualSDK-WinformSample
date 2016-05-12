@@ -10,7 +10,7 @@ A Visual Studio C# .NET windows form sample for the Intel Perceptual Computing S
 
 Basically this is a program that uses Intel Perceptual SDK to perform face location/detection (including confidence), landmark detection (location of eyes, mouth, nose) and face attributes detection(age, emotion, eye status, gender) in a windows form. 
 
-![Image of Yaktocat](http://imagizer.imageshack.us/a/img12/3250/v97j.png)
+![](http://adelriosantiago.com/articles/images/facereco-test.png)
 
 Feel free to use it on your projects. Remember you can contribute!
 
